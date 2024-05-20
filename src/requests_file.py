@@ -71,6 +71,7 @@ def get_info_product(link: str):
                 resp = requests.get(url=link, params=PARAMS)
                 if resp.status_code == 200:
                     soup = BeautifulSoup(resp.content, 'html.parser')
+                    # print(soup)
                     break
                 else:
                     if attempt < 3:
@@ -90,6 +91,7 @@ def get_info_product(link: str):
                             attempt = 1
                             break
             except Exception as ex:
+                print(ex)
                 if attempt < 3:
                     attempt += 1
                     continue

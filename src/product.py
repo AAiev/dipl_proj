@@ -41,6 +41,7 @@ class Product:
                     self.price_sale = int(re.match(r'\d+', price_sale_str).group())
                 else:
                     self.price_sale = None
+
                 if self.soup.find('div', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['price_old']):
                     price_old_str = self.soup.find('div',
                                                    class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE[
@@ -49,10 +50,15 @@ class Product:
                     self.price_old = int(re.match(r'\d+', price_old_str).group())
                 else:
                     self.price_old = None
+
                 info_prod = self.soup.find_all('div', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['info_product'])
                 self.id_prod = (
                     info_prod[0].find(class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['id_and_country']).text.strip())
-                self.description = info_prod[0].find(itemprop='description').text.replace('\n', '').strip()
+
+                if info_prod[0].find(itemprop='description'):
+                    self.description = info_prod[0].find(itemprop='description').text.replace('\n', '').strip()
+                else:
+                    self.description = 'нет данных'
 
                 if "ополнительная информация" in str(info_prod[-1]):
                     if 'происхождения' in info_prod[-1].text and 'изготовитель' in info_prod[-1].text:
