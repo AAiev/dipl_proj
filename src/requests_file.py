@@ -32,7 +32,7 @@ def get_all_product_links(url: str, file_name_csv: str):
                         print(f'{page} - {len(list_links)}. Всего: {count_links}. Попыток: {attempt}')
                         if list_links:
                             add_new_line_in_csv_file(file_name=file_name_csv, data=list_links)
-                            print(list_links)
+                            # print(list_links)
                         list_links.clear()
                         attempt = 1
                         page += 1
