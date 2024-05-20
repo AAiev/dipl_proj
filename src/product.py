@@ -26,11 +26,13 @@ class Product:
             try:
                 self.name_group = self.soup.find('div', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['group']).text.strip()
                 if self.soup.find('a', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['brand']):
-                    self.name_brand = self.soup.find('a', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['brand']).text.strip()
+                    self.name_brand = (self.soup.find('a', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['brand']).text
+                                       .strip())
                 else:
-                    self.name_brand = self.soup.find('span',
-                                                     class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['brand']).text.strip()
-                self.name_product = self.soup.find('span', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['product']).text.strip()
+                    self.name_brand = (self.soup.find('span', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['brand'])
+                                       .text.strip())
+                self.name_product = (self.soup.find('span', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['product'])
+                                     .text.strip())
                 if self.soup.find('div', class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE['price_sale']):
                     price_sale_str = self.soup.find('div',
                                                     class_=HTML_CLASSES_ON_PRODUCT_INFO_PAGE[
