@@ -9,7 +9,7 @@ from src.utils import read_csv_file, create_csv_file, add_new_line_in_csv_file
 
 def main():
     # парсим ссылки всех товаров в CSV файл (FILE_CSV_WITH_LINKS_PRODUCTS)
-    # get_all_product_links(URL_PARSING, FILE_CSV_WITH_LINKS_PRODUCTS)
+    get_all_product_links(URL_PARSING, FILE_CSV_WITH_LINKS_PRODUCTS)
 
     # создаем файл с результатами парсинга
     create_csv_file(file_name=FILE_CSV_WITH_RESULT, data=RESULT_FILE_HEADLINES)
