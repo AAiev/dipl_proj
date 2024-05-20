@@ -14,7 +14,7 @@ HTML_CLASSES_ON_PRODUCT_LIST_PAGE = [
 
 HTML_CLASSES_ON_PRODUCT_INFO_PAGE = {
     'group': ['Ab0Ao'],
-    'brand': ['_9Bnes wEteb h92Dk uEBTc', 'TjeQ6 _8l-0A Ks4bP geLVL'],
+    'brand': ['_9Bnes wEteb h92Dk uEBTc', 'TjeQ6 _8l-0A Ks4bP geLVL', 'geLVL'],
     'product': ['jOTnj', '_2k5cN'],
     'price_sale': ['_0OnLg +Ns2G', 'Kd+G7 CB1W3'],
     'price_old': ['_0OnLg ZIw21 M21En +Ns2G', 'Kd+G7 xx1gT oEjom CB1W3'],
