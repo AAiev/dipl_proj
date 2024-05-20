@@ -26,10 +26,9 @@ def test_add_new_line_in_csv_file(input_file2):
     assert read_csv_file(input_file2) == ['"1,2"\n']
 
 def test_add_new_line_in_csv_file2(input_file2):
-    create_csv_file(input_file2)
-    # test_list_rows = list[list]
-    # test_list_rows.append([3, 4])
-    # test_list_rows.append([5, 6])
+    create_csv_file(input_file2, [1, 2])
     test_list_rows = [[3, 4], [5, 6]]
     add_new_line_in_csv_file(input_file2, test_list_rows)
-    assert read_csv_file(input_file2) == ['"[3, 4]","[5, 6]"\n']
+    assert read_csv_file(input_file2) == ['1,2\n', '"[3, 4]","[5, 6]"\n']
+
+
