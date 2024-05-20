@@ -1,5 +1,8 @@
+import os
+
 import requests
 from bs4 import BeautifulSoup
+import time
 
 from src.utils import *
 from constants import *
@@ -54,3 +57,72 @@ def get_all_product_links(url: str, file_name_csv: str):
         add_new_line_in_csv_file(file_name=FILE_CSV_WITH_LINKS_PRODUCTS_ERRORS, data=list_page_with_zero_links)
     except Exception as ex:
         print(ex)
+
+
+def get_info_product(link: str):
+    """
+    Функция получения 'супа' - html-кода страницы для последующего разбора
+    """
+    attempt = 1
+    soup = None
+    while True:
+        if attempt < 5:
+            try:
+                resp = requests.get(url=link, params=PARAMS)
+                if resp.status_code == 200:
+                    soup = BeautifulSoup(resp.content, 'html.parser')
+                    break
+                else:
+                    if attempt < 3:
+                        attempt += 1
+                        continue
+                    elif attempt == 3:
+                        attempt += 1
+                        time.sleep(3)
+                        continue
+                    else:
+                        if os.path.exists(FILE_LINKS_WITH_ERROR):
+                            add_new_line_in_csv_file(file_name=FILE_LINKS_WITH_ERROR, data=[link])
+                            attempt = 1
+                            break
+                        else:
+                            create_csv_file(file_name=FILE_LINKS_WITH_ERROR, data=[link])
+                            attempt = 1
+                            break
+            except Exception as ex:
+                if attempt < 3:
+                    attempt += 1
+                    continue
+                elif attempt == 3:
+                    attempt += 1
+                    time.sleep(2)
+                    continue
+                else:
+                    if os.path.exists(FILE_LINKS_WITH_ERROR):
+                        add_new_line_in_csv_file(file_name=FILE_LINKS_WITH_ERROR, data=[link])
+                        attempt = 1
+                        time.sleep(2)
+                        break
+                    else:
+                        create_csv_file(file_name=FILE_LINKS_WITH_ERROR, data=[link])
+                        attempt = 1
+                        time.sleep(2)
+                        break
+    return soup
+
+
+def get_rating_from_request(url):
+    while True:
+        try:
+            resp = requests.get(url=url, params=PARAMS)
+            if resp.status_code == 200:
+                soup = BeautifulSoup(resp.content, 'html.parser')
+                rating = soup.find('div', itemprop='ratingValue').text.strip()
+                break
+            else:
+                raise Exception
+        except Exception as e:
+            print(e)
+            time.sleep(3)
+            continue
+    return rating

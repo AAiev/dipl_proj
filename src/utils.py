@@ -1,26 +1,33 @@
+# файл с функциями для работы с .csv файлами
 import csv
 
 
-def read_csv_file(file_name: str):
-    with open(file_name, encoding='utf-8') as file_r:
-        reader_object = csv.reader(file_r, delimiter=';')
-        return reader_object
+def read_csv_file(file_name):
+    """
+    функция чтения файла .csv
+    возвращает reader_object
+    """
+    with open(file_name, encoding='utf-8') as r_file:
+        # reader_object = csv.reader(r_file, delimiter=';')
+        data = r_file.readlines()
+        return data
 
 
 def create_csv_file(file_name: str, data=None):
-    with open(file_name, mode='w', encoding='utf-8') as file_w:
-        writer = csv.writer(file_w, delimiter=';')
+    """ функция создания файла .csv"""
+    with open(file_name, mode="w", encoding='utf-8') as w_file:
+        file_writer = csv.writer(w_file, delimiter=',', lineterminator="\r")
         if data is not None:
-            if data is list[list]:
-                writer.writerows(data)
-            else:
-                writer.writerow(data)
+            file_writer.writerow(data)
+    w_file.close()
 
 
-def add_new_data_in_csv_file(file_name: str, data=None):
-    with open(file_name, mode='a', encoding='utf-8') as file_a:
-        writer = csv.writer(file_a, delimiter=';')
+def add_new_line_in_csv_file(file_name: str, data=None):
+    """ функция добавления записи (списка) в конец файла """
+    with open(file_name, mode="a", encoding='utf-8') as a_file:
+        file_writer = csv.writer(a_file, delimiter=',', lineterminator="\r")
         if data is list[list]:
-            writer.writerows(data)
+            file_writer.writerows(data)
         else:
-            writer.writerow(data)
+            file_writer.writerow(data)
+    a_file.close()

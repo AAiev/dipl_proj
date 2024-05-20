@@ -29,3 +29,18 @@ FILE_CSV_WITH_LINKS_PRODUCTS_ERRORS = 'zero_links'
 FILE_CSV_WITH_RESULT = 'products_result.csv'
 FILE_LINKS_WITH_ERROR = 'products_result_links_error.csv'
 FILE_CSV_WITH_ERROR = ''
+
+# Названия колонок итогового файла
+RESULT_FILE_HEADLINES = ['ССЫЛКА НА ПРОДУКТ', 'ГРУППА',
+                         'БРЕНД', 'НАИМЕНОВАНИЕ',
+                         'ЦЕНА', 'РЕЙТИНГ ПОЛЬЗОВАТЕЛЕЙ',
+                         'ОПИСАНИЕ ПРОДУКТА', 'ИНСТРУКЦИЯ ПО ПРИМЕНЕНИЮ',
+                         'СТРАНА-ПРОИЗВОДИТЕЛЬ']
+
+# Параметры для запроса
+headers = {
+    'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 '
+                  'YaBrowser/23.1.1.1114 Yowser/2.5 Safari/537.36'
+}
+verify = False
+PARAMS = {'headers': headers, 'verify': verify}
