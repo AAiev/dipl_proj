@@ -46,7 +46,6 @@ def main():
                     links_list = r.strip().split(',')
                 else:
                     links_list = [r.strip()]
-            list_products_info = []
             for link in links_list:
                 while True:
                     try:
@@ -64,15 +63,13 @@ def main():
                         if len(info_list) == 0:
                             continue
                         list_for_result_file = product.get_format_list_for_result_file()
-                        list_products_info.append(list_for_result_file)
                         count_product += 1
                         print(f"{count_product} - {product.id_prod}")
                         break
                     except Exception as e:
                         print(e)
                         continue
-                add_new_line_in_csv_file(file_name=FILE_CSV_WITH_RESULT, data=list_products_info)
-                list_products_info = []
+                add_new_line_in_csv_file(file_name=FILE_CSV_WITH_RESULT, data=list_for_result_file)
 
     user_input = input("1 - Запустить код полностью\n"
                        "2 - Запустить парсинг только ссылок на товары и запись их в файл\n"
