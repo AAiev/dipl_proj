@@ -1,4 +1,5 @@
 # Файл с используемыми переменными
+import os
 
 # сайт для парсинга
 URL_PARSING = 'https://goldapple.ru/parfjumerija'
@@ -24,11 +25,9 @@ HTML_CLASSES_ON_PRODUCT_INFO_PAGE = {
 
 
 # Название файла .csv со списком ссылок на все товары
-FILE_CSV_WITH_LINKS_PRODUCTS = 'products_links.csv'
-FILE_CSV_WITH_LINKS_PRODUCTS_ERRORS = 'zero_links'
+FILE_CSV_WITH_LINKS_PRODUCTS = os.path.join('products_links.csv')
 FILE_CSV_WITH_RESULT = 'products_result.csv'
 FILE_LINKS_WITH_ERROR = 'products_result_links_error.csv'
-FILE_CSV_WITH_ERROR = ''
 
 # Названия колонок итогового файла
 RESULT_FILE_HEADLINES = ['ССЫЛКА НА ПРОДУКТ', 'ГРУППА',

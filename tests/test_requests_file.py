@@ -1,30 +1,40 @@
-import os.path
-
 import pytest
+from bs4 import BeautifulSoup
 
-from src.requests_file import get_all_product_links, get_info_product, get_rating_from_request
+from constants import *
+from src.requests_file import get_soup
 
 
 @pytest.fixture
-def link_true(): # имя фикстуры любое
-    return 'https://goldapple.ru/parfjumerija'
+def params():
+    params = PARAMS
+    params['p'] = 500
+    return params
+
 
 @pytest.fixture
-def link_false():
-    return 'https://goldapple.ru/parfjume'
+def params2():
+    params2 = PARAMS
+    params2['p'] = 1
+    return params2
+
 
 @pytest.fixture
-def link_product():
-    return 'https://goldapple.ru/19000220507-vieri'
+def link():
+    return URL_PARSING + '123'
+
 
 @pytest.fixture
-def file_name_csv():
-    return None
-
-def test_get_all_product_links(link_true, link_false, file_name_csv):
-    assert get_all_product_links(url=link_true, file_name_csv=file_name_csv) is None
-    assert get_all_product_links(url=link_false, file_name_csv=file_name_csv) is None
+def link2():
+    return URL_PARSING
 
 
-def test_get_info_product(link_true, link_false):
-    assert get_info_product(link=link_false) is None
+def test_get_soup(link, params):
+    soup = get_soup(link, params)
+    assert soup is not None
+    assert soup == 404
+
+
+def test_get_soup2(link2, params2):
+    soup = get_soup(link2, params2)
+    assert soup.__class__ == BeautifulSoup
