@@ -1,3 +1,5 @@
+import time
+
 from constants import *
 from src.product import Product
 from src.requests_file import get_soup
@@ -32,6 +34,7 @@ def main():
                     break
             except Exception as e:
                 print(e)
+                time.sleep(3)
                 continue
 
     def parsing_info_about_products_from_file():
@@ -68,6 +71,7 @@ def main():
                         break
                     except Exception as e:
                         print(e)
+                        time.sleep(3)
                         continue
                 add_new_line_in_csv_file(file_name=FILE_CSV_WITH_RESULT, data=list_for_result_file)
 

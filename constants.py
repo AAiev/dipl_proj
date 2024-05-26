@@ -11,16 +11,17 @@ HTML_CLASSES_ON_PRODUCT_LIST_PAGE = [
     '_9Bnes wEteb h92Dk rMYg4',
     'TjeQ6 _8l-0A Ks4bP VGaZJ',
     '_2uZNh _0wwKr Ol19w RWNxw',
+    '_9rRCN -8DXB Q2Leg NIdSI'
 ]
 
 HTML_CLASSES_ON_PRODUCT_INFO_PAGE = {
-    'group': ['Ab0Ao', '_1Npev'],
-    'brand': ['_9Bnes wEteb h92Dk uEBTc', 'TjeQ6 _8l-0A Ks4bP geLVL', 'geLVL', 'U6cYu lM5EF lHrjm nFsAb'],
-    'product': ['jOTnj', '_2k5cN', 'o8g7f'],
-    'price_sale': ['_0OnLg +Ns2G', 'Kd+G7 CB1W3', 'HP3N7 WV0kG'],
-    'price_old': ['_0OnLg ZIw21 M21En +Ns2G', 'Kd+G7 xx1gT oEjom CB1W3', ],
-    'info_product': ['TlDWb', 'wofKG'],
-    'id_and_country': ['Ytk5J', '_0tMqL']
+    'group': ['Ab0Ao', '_1Npev', 'dpdx3'],
+    'brand': ['_9Bnes wEteb h92Dk uEBTc', 'TjeQ6 _8l-0A Ks4bP geLVL', 'geLVL', 'U6cYu lM5EF lHrjm nFsAb', '_9rRCN -8DXB Q2Leg _6WCBx'],
+    'product': ['jOTnj', '_2k5cN', 'o8g7f', 't2xUP'],
+    'price_sale': ['_0OnLg +Ns2G', 'Kd+G7 CB1W3', 'HP3N7 WV0kG', 'ZnAqj yB3eZ'],
+    'price_old': ['_0OnLg ZIw21 M21En +Ns2G', 'Kd+G7 xx1gT oEjom CB1W3', 'ZnAqj IqtwM L29du yB3eZ'],
+    'info_product': ['TlDWb', 'wofKG', 'shl0X'],
+    'id_and_country': ['Ytk5J', '_0tMqL', '_9zqfI']
 }
 
 
